@@ -56,6 +56,7 @@
             menuToolStripMenuItem = new ToolStripMenuItem();
             chooseImageToolStripMenuItem = new ToolStripMenuItem();
             saveImageToolStripMenuItem = new ToolStripMenuItem();
+            createImageToolStripMenuItem = new ToolStripMenuItem();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             algorithmsGroupBox.SuspendLayout();
@@ -75,13 +76,13 @@
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 0);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 24);
-            tableLayoutPanel1.Margin = new Padding(2, 1, 2, 1);
+            tableLayoutPanel1.Location = new Point(0, 42);
+            tableLayoutPanel1.Margin = new Padding(4, 2, 4, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(1036, 419);
+            tableLayoutPanel1.Size = new Size(1924, 903);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -90,10 +91,10 @@
             flowLayoutPanel1.Controls.Add(groupBoxParamsForDithering);
             flowLayoutPanel1.Controls.Add(groupBoxParamsForPopularityAlgorithm);
             flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(2, 1);
-            flowLayoutPanel1.Margin = new Padding(2, 1, 2, 1);
+            flowLayoutPanel1.Location = new Point(4, 2);
+            flowLayoutPanel1.Margin = new Padding(4, 2, 4, 2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(206, 417);
+            flowLayoutPanel1.Size = new Size(383, 899);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // algorithmsGroupBox
@@ -104,21 +105,21 @@
             algorithmsGroupBox.Controls.Add(radioButtonOrderedDitheringRandom);
             algorithmsGroupBox.Controls.Add(radioButtonErrorDiffusionDithering);
             algorithmsGroupBox.Controls.Add(radioButtonAverageDithering);
-            algorithmsGroupBox.Location = new Point(2, 1);
-            algorithmsGroupBox.Margin = new Padding(2, 1, 2, 1);
+            algorithmsGroupBox.Location = new Point(4, 2);
+            algorithmsGroupBox.Margin = new Padding(4, 2, 4, 2);
             algorithmsGroupBox.Name = "algorithmsGroupBox";
-            algorithmsGroupBox.Padding = new Padding(2, 1, 2, 1);
-            algorithmsGroupBox.Size = new Size(215, 143);
+            algorithmsGroupBox.Padding = new Padding(4, 2, 4, 2);
+            algorithmsGroupBox.Size = new Size(399, 305);
             algorithmsGroupBox.TabIndex = 0;
             algorithmsGroupBox.TabStop = false;
             algorithmsGroupBox.Text = "Algorithms";
             // 
             // buttonRefresh
             // 
-            buttonRefresh.Location = new Point(124, 116);
-            buttonRefresh.Margin = new Padding(2, 1, 2, 1);
+            buttonRefresh.Location = new Point(230, 247);
+            buttonRefresh.Margin = new Padding(4, 2, 4, 2);
             buttonRefresh.Name = "buttonRefresh";
-            buttonRefresh.Size = new Size(81, 22);
+            buttonRefresh.Size = new Size(150, 47);
             buttonRefresh.TabIndex = 5;
             buttonRefresh.Text = "Refresh";
             buttonRefresh.UseVisualStyleBackColor = true;
@@ -127,10 +128,10 @@
             // radioButtonPopularityAlgorithm
             // 
             radioButtonPopularityAlgorithm.AutoSize = true;
-            radioButtonPopularityAlgorithm.Location = new Point(5, 97);
-            radioButtonPopularityAlgorithm.Margin = new Padding(2, 1, 2, 1);
+            radioButtonPopularityAlgorithm.Location = new Point(9, 207);
+            radioButtonPopularityAlgorithm.Margin = new Padding(4, 2, 4, 2);
             radioButtonPopularityAlgorithm.Name = "radioButtonPopularityAlgorithm";
-            radioButtonPopularityAlgorithm.Size = new Size(134, 19);
+            radioButtonPopularityAlgorithm.Size = new Size(263, 36);
             radioButtonPopularityAlgorithm.TabIndex = 4;
             radioButtonPopularityAlgorithm.TabStop = true;
             radioButtonPopularityAlgorithm.Text = "popularity algorithm";
@@ -140,10 +141,10 @@
             // radioButtonOrderedDitheringRelative
             // 
             radioButtonOrderedDitheringRelative.AutoSize = true;
-            radioButtonOrderedDitheringRelative.Location = new Point(5, 77);
-            radioButtonOrderedDitheringRelative.Margin = new Padding(2, 1, 2, 1);
+            radioButtonOrderedDitheringRelative.Location = new Point(9, 164);
+            radioButtonOrderedDitheringRelative.Margin = new Padding(4, 2, 4, 2);
             radioButtonOrderedDitheringRelative.Name = "radioButtonOrderedDitheringRelative";
-            radioButtonOrderedDitheringRelative.Size = new Size(158, 19);
+            radioButtonOrderedDitheringRelative.Size = new Size(318, 36);
             radioButtonOrderedDitheringRelative.TabIndex = 3;
             radioButtonOrderedDitheringRelative.TabStop = true;
             radioButtonOrderedDitheringRelative.Text = "ordered dithering relative";
@@ -153,10 +154,10 @@
             // radioButtonOrderedDitheringRandom
             // 
             radioButtonOrderedDitheringRandom.AutoSize = true;
-            radioButtonOrderedDitheringRandom.Location = new Point(5, 57);
-            radioButtonOrderedDitheringRandom.Margin = new Padding(2, 1, 2, 1);
+            radioButtonOrderedDitheringRandom.Location = new Point(9, 122);
+            radioButtonOrderedDitheringRandom.Margin = new Padding(4, 2, 4, 2);
             radioButtonOrderedDitheringRandom.Name = "radioButtonOrderedDitheringRandom";
-            radioButtonOrderedDitheringRandom.Size = new Size(162, 19);
+            radioButtonOrderedDitheringRandom.Size = new Size(323, 36);
             radioButtonOrderedDitheringRandom.TabIndex = 2;
             radioButtonOrderedDitheringRandom.TabStop = true;
             radioButtonOrderedDitheringRandom.Text = "ordered dithering random";
@@ -166,10 +167,10 @@
             // radioButtonErrorDiffusionDithering
             // 
             radioButtonErrorDiffusionDithering.AutoSize = true;
-            radioButtonErrorDiffusionDithering.Location = new Point(5, 38);
-            radioButtonErrorDiffusionDithering.Margin = new Padding(2, 1, 2, 1);
+            radioButtonErrorDiffusionDithering.Location = new Point(9, 81);
+            radioButtonErrorDiffusionDithering.Margin = new Padding(4, 2, 4, 2);
             radioButtonErrorDiffusionDithering.Name = "radioButtonErrorDiffusionDithering";
-            radioButtonErrorDiffusionDithering.Size = new Size(151, 19);
+            radioButtonErrorDiffusionDithering.Size = new Size(301, 36);
             radioButtonErrorDiffusionDithering.TabIndex = 1;
             radioButtonErrorDiffusionDithering.TabStop = true;
             radioButtonErrorDiffusionDithering.Text = "error diffusion dithering";
@@ -179,10 +180,10 @@
             // radioButtonAverageDithering
             // 
             radioButtonAverageDithering.AutoSize = true;
-            radioButtonAverageDithering.Location = new Point(5, 18);
-            radioButtonAverageDithering.Margin = new Padding(2, 1, 2, 1);
+            radioButtonAverageDithering.Location = new Point(9, 38);
+            radioButtonAverageDithering.Margin = new Padding(4, 2, 4, 2);
             radioButtonAverageDithering.Name = "radioButtonAverageDithering";
-            radioButtonAverageDithering.Size = new Size(117, 19);
+            radioButtonAverageDithering.Size = new Size(233, 36);
             radioButtonAverageDithering.TabIndex = 0;
             radioButtonAverageDithering.TabStop = true;
             radioButtonAverageDithering.Text = "average dithering";
@@ -197,41 +198,41 @@
             groupBoxParamsForDithering.Controls.Add(labelKb);
             groupBoxParamsForDithering.Controls.Add(labelKg);
             groupBoxParamsForDithering.Controls.Add(labelKr);
-            groupBoxParamsForDithering.Location = new Point(2, 146);
-            groupBoxParamsForDithering.Margin = new Padding(2, 1, 2, 1);
+            groupBoxParamsForDithering.Location = new Point(4, 311);
+            groupBoxParamsForDithering.Margin = new Padding(4, 2, 4, 2);
             groupBoxParamsForDithering.Name = "groupBoxParamsForDithering";
-            groupBoxParamsForDithering.Padding = new Padding(2, 1, 2, 1);
-            groupBoxParamsForDithering.Size = new Size(215, 94);
+            groupBoxParamsForDithering.Padding = new Padding(4, 2, 4, 2);
+            groupBoxParamsForDithering.Size = new Size(399, 201);
             groupBoxParamsForDithering.TabIndex = 1;
             groupBoxParamsForDithering.TabStop = false;
             groupBoxParamsForDithering.Text = "Params for dithering";
             // 
             // textBoxKb
             // 
-            textBoxKb.Location = new Point(86, 69);
-            textBoxKb.Margin = new Padding(2, 1, 2, 1);
+            textBoxKb.Location = new Point(160, 147);
+            textBoxKb.Margin = new Padding(4, 2, 4, 2);
             textBoxKb.Name = "textBoxKb";
-            textBoxKb.Size = new Size(110, 23);
+            textBoxKb.Size = new Size(201, 39);
             textBoxKb.TabIndex = 5;
             textBoxKb.Text = "2";
             textBoxKb.TextChanged += textBoxKb_TextChanged;
             // 
             // textBoxKg
             // 
-            textBoxKg.Location = new Point(86, 47);
-            textBoxKg.Margin = new Padding(2, 1, 2, 1);
+            textBoxKg.Location = new Point(160, 100);
+            textBoxKg.Margin = new Padding(4, 2, 4, 2);
             textBoxKg.Name = "textBoxKg";
-            textBoxKg.Size = new Size(110, 23);
+            textBoxKg.Size = new Size(201, 39);
             textBoxKg.TabIndex = 4;
             textBoxKg.Text = "2";
             textBoxKg.TextChanged += textBoxKg_TextChanged;
             // 
             // textBoxKr
             // 
-            textBoxKr.Location = new Point(86, 24);
-            textBoxKr.Margin = new Padding(2, 1, 2, 1);
+            textBoxKr.Location = new Point(160, 51);
+            textBoxKr.Margin = new Padding(4, 2, 4, 2);
             textBoxKr.Name = "textBoxKr";
-            textBoxKr.Size = new Size(110, 23);
+            textBoxKr.Size = new Size(201, 39);
             textBoxKr.TabIndex = 3;
             textBoxKr.Text = "2";
             textBoxKr.TextChanged += textBoxKr_TextChanged;
@@ -239,30 +240,30 @@
             // labelKb
             // 
             labelKb.AutoSize = true;
-            labelKb.Location = new Point(15, 70);
-            labelKb.Margin = new Padding(2, 0, 2, 0);
+            labelKb.Location = new Point(28, 149);
+            labelKb.Margin = new Padding(4, 0, 4, 0);
             labelKb.Name = "labelKb";
-            labelKb.Size = new Size(21, 15);
+            labelKb.Size = new Size(42, 32);
             labelKb.TabIndex = 2;
             labelKb.Text = "Kb";
             // 
             // labelKg
             // 
             labelKg.AutoSize = true;
-            labelKg.Location = new Point(15, 48);
-            labelKg.Margin = new Padding(2, 0, 2, 0);
+            labelKg.Location = new Point(28, 102);
+            labelKg.Margin = new Padding(4, 0, 4, 0);
             labelKg.Name = "labelKg";
-            labelKg.Size = new Size(21, 15);
+            labelKg.Size = new Size(42, 32);
             labelKg.TabIndex = 1;
             labelKg.Text = "Kg";
             // 
             // labelKr
             // 
             labelKr.AutoSize = true;
-            labelKr.Location = new Point(15, 24);
-            labelKr.Margin = new Padding(2, 0, 2, 0);
+            labelKr.Location = new Point(28, 51);
+            labelKr.Margin = new Padding(4, 0, 4, 0);
             labelKr.Name = "labelKr";
-            labelKr.Size = new Size(18, 15);
+            labelKr.Size = new Size(36, 32);
             labelKr.TabIndex = 0;
             labelKr.Text = "Kr";
             // 
@@ -270,11 +271,11 @@
             // 
             groupBoxParamsForPopularityAlgorithm.Controls.Add(labelK);
             groupBoxParamsForPopularityAlgorithm.Controls.Add(textBoxK);
-            groupBoxParamsForPopularityAlgorithm.Location = new Point(2, 242);
-            groupBoxParamsForPopularityAlgorithm.Margin = new Padding(2, 1, 2, 1);
+            groupBoxParamsForPopularityAlgorithm.Location = new Point(4, 516);
+            groupBoxParamsForPopularityAlgorithm.Margin = new Padding(4, 2, 4, 2);
             groupBoxParamsForPopularityAlgorithm.Name = "groupBoxParamsForPopularityAlgorithm";
-            groupBoxParamsForPopularityAlgorithm.Padding = new Padding(2, 1, 2, 1);
-            groupBoxParamsForPopularityAlgorithm.Size = new Size(215, 58);
+            groupBoxParamsForPopularityAlgorithm.Padding = new Padding(4, 2, 4, 2);
+            groupBoxParamsForPopularityAlgorithm.Size = new Size(399, 124);
             groupBoxParamsForPopularityAlgorithm.TabIndex = 2;
             groupBoxParamsForPopularityAlgorithm.TabStop = false;
             groupBoxParamsForPopularityAlgorithm.Text = "Params for popularity algorithm";
@@ -282,19 +283,19 @@
             // labelK
             // 
             labelK.AutoSize = true;
-            labelK.Location = new Point(15, 26);
-            labelK.Margin = new Padding(2, 0, 2, 0);
+            labelK.Location = new Point(28, 55);
+            labelK.Margin = new Padding(4, 0, 4, 0);
             labelK.Name = "labelK";
-            labelK.Size = new Size(14, 15);
+            labelK.Size = new Size(28, 32);
             labelK.TabIndex = 1;
             labelK.Text = "K";
             // 
             // textBoxK
             // 
-            textBoxK.Location = new Point(86, 25);
-            textBoxK.Margin = new Padding(2, 1, 2, 1);
+            textBoxK.Location = new Point(160, 53);
+            textBoxK.Margin = new Padding(4, 2, 4, 2);
             textBoxK.Name = "textBoxK";
-            textBoxK.Size = new Size(110, 23);
+            textBoxK.Size = new Size(201, 39);
             textBoxK.TabIndex = 0;
             textBoxK.Text = "1015";
             textBoxK.TextChanged += textBoxK_TextChanged;
@@ -309,13 +310,13 @@
             tableLayoutPanel2.Controls.Add(pictureBoxOriginalImage, 0, 1);
             tableLayoutPanel2.Controls.Add(pictureBoxChangedImage, 1, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(212, 1);
-            tableLayoutPanel2.Margin = new Padding(2, 1, 2, 1);
+            tableLayoutPanel2.Location = new Point(395, 2);
+            tableLayoutPanel2.Margin = new Padding(4, 2, 4, 2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 6.49627256F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 93.50373F));
-            tableLayoutPanel2.Size = new Size(822, 417);
+            tableLayoutPanel2.Size = new Size(1525, 899);
             tableLayoutPanel2.TabIndex = 2;
             // 
             // labelOriginalImage
@@ -323,10 +324,10 @@
             labelOriginalImage.AutoSize = true;
             labelOriginalImage.Dock = DockStyle.Fill;
             labelOriginalImage.Font = new Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelOriginalImage.Location = new Point(2, 0);
-            labelOriginalImage.Margin = new Padding(2, 0, 2, 0);
+            labelOriginalImage.Location = new Point(4, 0);
+            labelOriginalImage.Margin = new Padding(4, 0, 4, 0);
             labelOriginalImage.Name = "labelOriginalImage";
-            labelOriginalImage.Size = new Size(397, 27);
+            labelOriginalImage.Size = new Size(736, 58);
             labelOriginalImage.TabIndex = 0;
             labelOriginalImage.Text = "Original Image:";
             // 
@@ -335,30 +336,30 @@
             labelChangedImage.AutoSize = true;
             labelChangedImage.Dock = DockStyle.Fill;
             labelChangedImage.Font = new Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelChangedImage.Location = new Point(403, 0);
-            labelChangedImage.Margin = new Padding(2, 0, 2, 0);
+            labelChangedImage.Location = new Point(748, 0);
+            labelChangedImage.Margin = new Padding(4, 0, 4, 0);
             labelChangedImage.Name = "labelChangedImage";
-            labelChangedImage.Size = new Size(417, 27);
+            labelChangedImage.Size = new Size(773, 58);
             labelChangedImage.TabIndex = 1;
             labelChangedImage.Text = "Reduced Image:";
             // 
             // pictureBoxOriginalImage
             // 
             pictureBoxOriginalImage.Dock = DockStyle.Fill;
-            pictureBoxOriginalImage.Location = new Point(2, 28);
-            pictureBoxOriginalImage.Margin = new Padding(2, 1, 2, 1);
+            pictureBoxOriginalImage.Location = new Point(4, 60);
+            pictureBoxOriginalImage.Margin = new Padding(4, 2, 4, 2);
             pictureBoxOriginalImage.Name = "pictureBoxOriginalImage";
-            pictureBoxOriginalImage.Size = new Size(397, 388);
+            pictureBoxOriginalImage.Size = new Size(736, 837);
             pictureBoxOriginalImage.TabIndex = 2;
             pictureBoxOriginalImage.TabStop = false;
             // 
             // pictureBoxChangedImage
             // 
             pictureBoxChangedImage.Dock = DockStyle.Fill;
-            pictureBoxChangedImage.Location = new Point(403, 28);
-            pictureBoxChangedImage.Margin = new Padding(2, 1, 2, 1);
+            pictureBoxChangedImage.Location = new Point(748, 60);
+            pictureBoxChangedImage.Margin = new Padding(4, 2, 4, 2);
             pictureBoxChangedImage.Name = "pictureBoxChangedImage";
-            pictureBoxChangedImage.Size = new Size(417, 388);
+            pictureBoxChangedImage.Size = new Size(773, 837);
             pictureBoxChangedImage.TabIndex = 3;
             pictureBoxChangedImage.TabStop = false;
             // 
@@ -368,41 +369,47 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(3, 1, 0, 1);
-            menuStrip1.Size = new Size(1036, 24);
+            menuStrip1.Size = new Size(1924, 42);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStripColorReduction";
             // 
             // menuToolStripMenuItem
             // 
-            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { chooseImageToolStripMenuItem, saveImageToolStripMenuItem });
+            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { chooseImageToolStripMenuItem, saveImageToolStripMenuItem, createImageToolStripMenuItem });
             menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            menuToolStripMenuItem.Size = new Size(50, 22);
+            menuToolStripMenuItem.Size = new Size(97, 38);
             menuToolStripMenuItem.Text = "Menu";
             // 
             // chooseImageToolStripMenuItem
             // 
             chooseImageToolStripMenuItem.Name = "chooseImageToolStripMenuItem";
-            chooseImageToolStripMenuItem.Size = new Size(150, 22);
+            chooseImageToolStripMenuItem.Size = new Size(359, 44);
             chooseImageToolStripMenuItem.Text = "Choose Image";
             chooseImageToolStripMenuItem.Click += chooseImageToolStripMenuItem_Click;
             // 
             // saveImageToolStripMenuItem
             // 
             saveImageToolStripMenuItem.Name = "saveImageToolStripMenuItem";
-            saveImageToolStripMenuItem.Size = new Size(150, 22);
+            saveImageToolStripMenuItem.Size = new Size(359, 44);
             saveImageToolStripMenuItem.Text = "Save Image";
             saveImageToolStripMenuItem.Click += saveImageToolStripMenuItem_Click;
             // 
+            // createImageToolStripMenuItem
+            // 
+            createImageToolStripMenuItem.Name = "createImageToolStripMenuItem";
+            createImageToolStripMenuItem.Size = new Size(359, 44);
+            createImageToolStripMenuItem.Text = "Create Image";
+            createImageToolStripMenuItem.Click += createImageToolStripMenuItem_Click;
+            // 
             // ColorReduction
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1036, 443);
+            ClientSize = new Size(1924, 945);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(2, 1, 2, 1);
+            Margin = new Padding(4, 2, 4, 2);
             Name = "ColorReduction";
             Text = "ColorReduction";
             tableLayoutPanel1.ResumeLayout(false);
@@ -453,5 +460,6 @@
         private ToolStripMenuItem menuToolStripMenuItem;
         private ToolStripMenuItem chooseImageToolStripMenuItem;
         private ToolStripMenuItem saveImageToolStripMenuItem;
+        private ToolStripMenuItem createImageToolStripMenuItem;
     }
 }

@@ -2,7 +2,9 @@
 using System.CodeDom.Compiler;
 using System.Collections.Concurrent;
 using System.Data;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Reflection.Metadata;
 
 namespace PhotoEditor_CG2
 {
@@ -31,6 +33,154 @@ namespace PhotoEditor_CG2
             reducedImage = new Bitmap(1, 1);
         }
 
+        // LAB
+        private void createImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            buildImage();
+            reduceColors();
+            drawOriginalImage();
+            drawChangedImage();
+        }
+
+        // Build the image
+        private void buildImage()
+        {
+            var width = pictureBoxOriginalImage.Width;
+            var height = pictureBoxOriginalImage.Height;
+
+            Bitmap image = new Bitmap(width, height);
+            for (int x = 0; x < width/2; x++)
+            {
+                var c = stripeColor(x, width);
+                
+
+                for (int y = 0; y < height; y++)
+                {
+                    image.SetPixel(x, y, c);
+                }
+            }
+
+            for (int x = width / 2; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    float h = (x - width / 2) * 360f / (width / 2);
+                    float s = 1 - y / (float)height;
+
+                    var (r, g, b) = HsvToRgb(h, s, 1);
+                    image.SetPixel(x, y, Color.FromArgb(r, g, b));
+                }
+            }
+
+            originalImage = image;
+
+        }
+
+        public static Color stripeColor(int x, int width)
+        {
+            if (x < width * 1 / 12)
+            {
+                return Color.Black;
+            }
+            else if (x < width * 2 / 12)
+            {
+                return Color.White;
+            }
+            else if (x < width * 3 / 12)
+            {
+                return Color.Black;
+            }
+            else if (x < width * 7 / 24)
+            {
+                return Color.White;
+            }
+            else if (x < width * 8 / 24)
+            {
+                return Color.Black;
+            }
+            else if (x < width * 9 / 24)
+            {
+                return Color.White;
+            }
+            else if (x < width * 10 / 24)
+            {
+                return Color.Black;
+            }
+            else if (x < width * 21 / 48)
+            {
+                return Color.White;
+            }
+            else if (x < width * 22 / 48)
+            {
+                return Color.Black;
+            }
+            else if (x < width * 23 / 48)
+            {
+                return Color.White;
+            }
+            else
+            {
+                return Color.Black;
+            }
+        }
+
+        public static (int R, int G, int B) HsvToRgb(float h, float s, float v)
+        {
+            int r, g, b;
+
+            if (s == 0)
+            {
+                r = g = b = (int)(v * 255);
+            }
+            else
+            {
+                float sector = h / 60;  
+                int i = (int)Math.Floor(sector);
+                float f = sector - i; 
+
+                float p = v * (1 - s);
+                float q = v * (1 - s * f);
+                float t = v * (1 - s * (1 - f));
+
+                switch (i)
+                {
+                    case 0:
+                        r = (int)(v * 255);
+                        g = (int)(t * 255);
+                        b = (int)(p * 255);
+                        break;
+                    case 1:
+                        r = (int)(q * 255);
+                        g = (int)(v * 255);
+                        b = (int)(p * 255);
+                        break;
+                    case 2:
+                        r = (int)(p * 255);
+                        g = (int)(v * 255);
+                        b = (int)(t * 255);
+                        break;
+                    case 3:
+                        r = (int)(p * 255);
+                        g = (int)(q * 255);
+                        b = (int)(v * 255);
+                        break;
+                    case 4:
+                        r = (int)(t * 255);
+                        g = (int)(p * 255);
+                        b = (int)(v * 255);
+                        break;
+                    default:
+                        r = (int)(v * 255);
+                        g = (int)(p * 255);
+                        b = (int)(q * 255);
+                        break;
+                }
+            }
+
+            return (r, g, b);
+        }
+        // LAB
+
         private void chooseImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -41,7 +191,6 @@ namespace PhotoEditor_CG2
                 string projectDirectory = Application.StartupPath;
                 string dataFolderPath = Path.Combine(projectDirectory, "data");
                 openFileDialog.InitialDirectory = dataFolderPath;
-                //openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
                 // Show the dialog and check if the user clicked OK
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -65,7 +214,7 @@ namespace PhotoEditor_CG2
 
         private void saveImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog()) 
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
                 // Set the save dialog properties
                 saveFileDialog.Title = "Save the image";
@@ -88,7 +237,7 @@ namespace PhotoEditor_CG2
         private void drawOriginalImage()
         {
             // Check if the path is empty
-            if (path == "")
+            if (originalImage == null)
             {
                 MessageBox.Show("Please select an image");
                 return;
@@ -109,14 +258,11 @@ namespace PhotoEditor_CG2
         private void refreshButton_Click(object sender, EventArgs e)
         {
             // Check if the path is empty
-            if (path == "")
+            if (originalImage == null)
             {
                 MessageBox.Show("Please select an image");
                 return;
             }
-
-            // Create a new Bitmap object from the selected file path
-            Bitmap image = new Bitmap(path);
 
             // Reduce the number of colors in the image using average dithering algorithm
             reduceColors();
@@ -328,12 +474,10 @@ namespace PhotoEditor_CG2
 
         public unsafe Bitmap orderedDitheringRandom(Bitmap originalImage, int Kr, int Kg, int Kb)
         {
-            // Validate input parameters
             if (Kr < 2) throw new ArgumentException("Kr must be at least 2", nameof(Kr));
             if (Kg < 2) throw new ArgumentException("Kg must be at least 2", nameof(Kg));
             if (Kb < 2) throw new ArgumentException("Kb must be at least 2", nameof(Kb));
 
-            // Calculate matrix sizes and generate Bayer matrices
             int nR = BayerMatrixCalculator.CalculateOptimalBayerSize(Kr);
             int nG = BayerMatrixCalculator.CalculateOptimalBayerSize(Kg);
             int nB = BayerMatrixCalculator.CalculateOptimalBayerSize(Kb);
@@ -342,10 +486,8 @@ namespace PhotoEditor_CG2
             var bayerG = BayerMatrixCalculator.GenerateBayerMatrix(Kg);
             var bayerB = BayerMatrixCalculator.GenerateBayerMatrix(Kb);
 
-            // Create output bitmap
             Bitmap result = new Bitmap(originalImage.Width, originalImage.Height);
 
-            // Lock bits for faster processing
             BitmapData originalData = originalImage.LockBits(
                 new Rectangle(0, 0, originalImage.Width, originalImage.Height),
                 ImageLockMode.ReadOnly,
@@ -624,7 +766,7 @@ namespace PhotoEditor_CG2
         // Create color lookup table for faster nearest color finding
         private Color32[] CreateColorLookupTable(Color32[] palette)
         {
-            const int TABLE_SIZE = 32; // Reduced precision for lookup table
+            const int TABLE_SIZE = 64; // Reduced precision for lookup table
             var table = new Color32[TABLE_SIZE * TABLE_SIZE * TABLE_SIZE];
 
             Parallel.For(0, TABLE_SIZE, r =>
@@ -649,7 +791,7 @@ namespace PhotoEditor_CG2
         // Fast nearest color lookup using the lookup table
         private Color32 FindNearestColorFast(byte r, byte g, byte b, Color32[] lookupTable)
         {
-            const int TABLE_SIZE = 32;
+            const int TABLE_SIZE = 64;
             int ri = r * (TABLE_SIZE - 1) / 255;
             int gi = g * (TABLE_SIZE - 1) / 255;
             int bi = b * (TABLE_SIZE - 1) / 255;
@@ -679,12 +821,6 @@ namespace PhotoEditor_CG2
             }
 
             return nearest;
-        }
-
-        // Helper method to clamp values
-        private int Clamp(int value, int min, int max)
-        {
-            return Math.Max(min, Math.Min(max, value));
         }
 
         private void radioButtonAverageDithering_CheckedChanged(object sender, EventArgs e)

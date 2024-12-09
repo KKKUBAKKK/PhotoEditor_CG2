@@ -28,71 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            chromaticityDiagramButton = new Button();
             ColorReductionButton = new Button();
-            buttonRGBtoCMYK = new Button();
-            buttonRGBtoYCbCrHSVLab = new Button();
             SuspendLayout();
-            // 
-            // chromaticityDiagramButton
-            // 
-            chromaticityDiagramButton.Location = new Point(33, 49);
-            chromaticityDiagramButton.Name = "chromaticityDiagramButton";
-            chromaticityDiagramButton.Size = new Size(500, 72);
-            chromaticityDiagramButton.TabIndex = 0;
-            chromaticityDiagramButton.Text = "Chromaticity Diagram";
-            chromaticityDiagramButton.UseVisualStyleBackColor = true;
-            chromaticityDiagramButton.Click += chromaticityDiagramButton_Click;
             // 
             // ColorReductionButton
             // 
-            ColorReductionButton.Location = new Point(33, 127);
+            ColorReductionButton.Location = new Point(31, 36);
             ColorReductionButton.Name = "ColorReductionButton";
             ColorReductionButton.Size = new Size(500, 68);
             ColorReductionButton.TabIndex = 1;
-            ColorReductionButton.Text = "Color reduction";
+            ColorReductionButton.Text = "Color reduction algorithms";
             ColorReductionButton.UseVisualStyleBackColor = true;
             ColorReductionButton.Click += ColorReductionButton_Click;
-            // 
-            // buttonRGBtoCMYK
-            // 
-            buttonRGBtoCMYK.Location = new Point(33, 201);
-            buttonRGBtoCMYK.Name = "buttonRGBtoCMYK";
-            buttonRGBtoCMYK.Size = new Size(500, 72);
-            buttonRGBtoCMYK.TabIndex = 2;
-            buttonRGBtoCMYK.Text = "RGB to CMYK";
-            buttonRGBtoCMYK.UseVisualStyleBackColor = true;
-            buttonRGBtoCMYK.Click += buttonRGBtoCMYK_Click;
-            // 
-            // buttonRGBtoYCbCrHSVLab
-            // 
-            buttonRGBtoYCbCrHSVLab.Location = new Point(33, 279);
-            buttonRGBtoYCbCrHSVLab.Name = "buttonRGBtoYCbCrHSVLab";
-            buttonRGBtoYCbCrHSVLab.Size = new Size(500, 75);
-            buttonRGBtoYCbCrHSVLab.TabIndex = 3;
-            buttonRGBtoYCbCrHSVLab.Text = "RGB to YCbCr, HSV, Lab";
-            buttonRGBtoYCbCrHSVLab.UseVisualStyleBackColor = true;
-            buttonRGBtoYCbCrHSVLab.Click += buttonRGBtoYCbCrHSVLab_Click;
             // 
             // PhotoEditorMenu
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(564, 956);
-            Controls.Add(buttonRGBtoYCbCrHSVLab);
-            Controls.Add(buttonRGBtoCMYK);
+            ClientSize = new Size(563, 139);
             Controls.Add(ColorReductionButton);
-            Controls.Add(chromaticityDiagramButton);
             Name = "PhotoEditorMenu";
             Text = "Photo Editor Menu";
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Button chromaticityDiagramButton;
         private Button ColorReductionButton;
-        private Button buttonRGBtoCMYK;
-        private Button buttonRGBtoYCbCrHSVLab;
     }
 }
